@@ -27,7 +27,114 @@ enum Direction {
 let go: Direction = Direction.Up;
 console.log(go);
 
-function calculateTax(income: number) {
+function calculateTax(income: number, taxYear: number = 2022): number {
+  console.log(`Calculating tax for ${taxYear}`);
   let tax = income * 0.4;
   return tax;
 }
+
+let tax = calculateTax(400_000);
+tax?.toString();
+
+function sum(a: number, b: number) {
+  return a + b;
+}
+
+sum(10, 20);
+
+let employee: {
+  readonly id: number;
+  name: string;
+  printName: () => void;
+} = {
+  id: 1,
+  name: "Steve",
+  printName: () => {
+    console.log(employee.name);
+  },
+};
+
+employee.printName();
+
+type Employee = {
+  id: number;
+  name: string;
+  printName: () => void;
+};
+
+let employee2: Employee = {
+  id: 2,
+  name: "Steve",
+  printName: () => {
+    console.log(employee.name);
+  },
+};
+
+function kgToLbs(weight: number | string): number {
+  //narrowing
+  if (typeof weight === "string") return parseInt(weight) * 2.2;
+  else return weight * 2.2;
+}
+
+kgToLbs(10);
+kgToLbs("10");
+
+type Draggable = {
+  drag: () => void;
+};
+
+type Droppable = {
+  drop: () => void;
+};
+
+type Resizable = {
+  resize: () => void;
+};
+
+type UIWidget = Draggable & Droppable & Resizable;
+
+let uiWidget: UIWidget = {
+  drag: () => {
+    console.log("dragging");
+  },
+  drop: () => {
+    console.log("dropping");
+  },
+  resize: () => {
+    console.log("resizing");
+  },
+};
+
+uiWidget.drag();
+uiWidget.drop();
+uiWidget.resize();
+
+type Quantity = 50 | 100 | 200;
+let q: Quantity = 50;
+
+type Direction2 = "Up" | "Down" | "Left" | "Right";
+let d: Direction2 = "Up";
+
+type Metric = "m" | "cm" | "mm";
+let distance: Metric = "mm";
+
+function greet(name: string | null | undefined) {
+  if (name) console.log(`Hello ${name}`);
+}
+
+greet(null);
+greet(undefined);
+greet("Steve");
+
+type Customer = {
+  birthDate?: Date;
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+  console.log(`Fetching customer ${id}`);
+  return { birthDate: new Date() };
+}
+
+let customer = getCustomer(1);
+
+console.log(customer?.birthDate?.getFullYear());
