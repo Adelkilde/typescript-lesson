@@ -87,4 +87,56 @@ function getCustomer(id) {
 }
 let customer = getCustomer(1);
 console.log((_a = customer === null || customer === void 0 ? void 0 : customer.birthDate) === null || _a === void 0 ? void 0 : _a.getFullYear());
+let log = (message) => {
+    console.log(message);
+};
+log = null;
+log === null || log === void 0 ? void 0 : log("Hello world");
+function doSomething(document) {
+    if (typeof document === "string")
+        console.log(document.toUpperCase());
+}
+doSomething(null);
+function handleDocument(document) {
+    if (document instanceof HTMLDivElement) {
+        document.style.display = "none";
+    }
+}
+function processEvents() {
+    while (true) {
+        console.log("processing");
+    }
+}
+function reject(reason) {
+    throw new Error(reason);
+}
+console.log("done");
+class Account {
+    constructor(id, owner, balance) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    deposit(amount) {
+        if (amount <= 0)
+            throw new Error("Invalid amount");
+        this.balance += amount;
+    }
+}
+let account = new Account(1, "Steve", 100);
+account.deposit(10);
+if (account instanceof Account)
+    console.log("Account");
+class AccountBetter {
+    constructor(id, owner, balance) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    getBalance() {
+        console.log(`Account ID: ${this.id}`);
+        return this.balance;
+    }
+}
+let account2 = new AccountBetter(1, "Steve", 100);
 //# sourceMappingURL=index.js.map

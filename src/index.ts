@@ -138,3 +138,65 @@ function getCustomer(id: number): Customer | null | undefined {
 let customer = getCustomer(1);
 
 console.log(customer?.birthDate?.getFullYear());
+
+let log: any = (message: string): void => {
+  console.log(message);
+};
+
+log = null;
+
+log?.("Hello world");
+
+// let phone = document.getElementById("phone") as HTMLInputElement;
+// phone.click();
+
+function doSomething(document: unknown) {
+  if (typeof document === "string") console.log(document.toUpperCase());
+}
+
+doSomething(null);
+
+function handleDocument(document: unknown) {
+  if (document instanceof HTMLDivElement) {
+    document.style.display = "none";
+  }
+}
+
+function processEvents(): never {
+  while (true) {
+    console.log("processing");
+  }
+}
+
+//processEvents();
+
+function reject(reason: string) {
+  throw new Error(reason);
+}
+
+//reject("Something went wrong");
+console.log("done");
+
+class Account {
+  id: number;
+  owner: string;
+  balance: number;
+
+  constructor(id: number, owner: string, balance: number) {
+    this.id = id;
+    this.owner = owner;
+    this.balance = balance;
+  }
+
+  deposit(amount: number): void {
+    if (amount <= 0) throw new Error("Invalid amount");
+    this.balance += amount;
+  }
+}
+
+let account = new Account(1, "Steve", 100);
+account.deposit(10);
+
+if (account instanceof Account) console.log("Account");
+
+//keywords: public, private, readonly, protected
