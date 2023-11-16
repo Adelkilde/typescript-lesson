@@ -87,4 +87,28 @@ function getCustomer(id) {
 }
 let customer = getCustomer(1);
 console.log((_a = customer === null || customer === void 0 ? void 0 : customer.birthDate) === null || _a === void 0 ? void 0 : _a.getFullYear());
+let log = (message) => {
+    console.log(message);
+};
+log = null;
+log === null || log === void 0 ? void 0 : log("Hello World");
+function doSomething(document) {
+    if (typeof document === "string")
+        console.log(document.toUpperCase());
+}
+doSomething(null);
+function handleDocument(document) {
+    if (document instanceof HTMLDivElement) {
+        document.style.display = "none";
+    }
+}
+function processEvents() {
+    while (true) {
+        console.log("processing");
+    }
+}
+function reject(reason) {
+    throw new Error(reason);
+}
+console.log("Done");
 //# sourceMappingURL=index.js.map

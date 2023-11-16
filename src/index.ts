@@ -138,3 +138,40 @@ function getCustomer(id: number): Customer | null | undefined {
 let customer = getCustomer(1);
 
 console.log(customer?.birthDate?.getFullYear());
+
+let log: any = (message: string): void => {
+  console.log(message);
+};
+
+log = null;
+
+log?.("Hello World");
+
+// let phone = document.getElementById("phone") as HTMLInputElement;
+// phone.click();
+
+function doSomething(document: unknown) {
+  if (typeof document === "string") console.log(document.toUpperCase());
+}
+
+doSomething(null);
+
+function handleDocument(document: unknown) {
+  if (document instanceof HTMLDivElement) {
+    document.style.display = "none";
+  }
+}
+
+function processEvents(): never {
+  while (true) {
+    console.log("processing");
+  }
+}
+// processEvents();
+
+function reject(reason: string) {
+  throw new Error(reason);
+}
+
+// reject("Something went wrong");
+console.log("Done");
