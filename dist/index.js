@@ -91,7 +91,7 @@ let log = (message) => {
     console.log(message);
 };
 log = null;
-log === null || log === void 0 ? void 0 : log("Hello World");
+log === null || log === void 0 ? void 0 : log("Hello world");
 function doSomething(document) {
     if (typeof document === "string")
         console.log(document.toUpperCase());
@@ -110,5 +110,33 @@ function processEvents() {
 function reject(reason) {
     throw new Error(reason);
 }
-console.log("Done");
+console.log("done");
+class Account {
+    constructor(id, owner, balance) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    deposit(amount) {
+        if (amount <= 0)
+            throw new Error("Invalid amount");
+        this.balance += amount;
+    }
+}
+let account = new Account(1, "Steve", 100);
+account.deposit(10);
+if (account instanceof Account)
+    console.log("Account");
+class AccountBetter {
+    constructor(id, owner, balance) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    getBalance() {
+        console.log(`Account ID: ${this.id}`);
+        return this.balance;
+    }
+}
+let account2 = new AccountBetter(1, "Steve", 100);
 //# sourceMappingURL=index.js.map

@@ -145,7 +145,7 @@ let log: any = (message: string): void => {
 
 log = null;
 
-log?.("Hello World");
+log?.("Hello world");
 
 // let phone = document.getElementById("phone") as HTMLInputElement;
 // phone.click();
@@ -167,11 +167,36 @@ function processEvents(): never {
     console.log("processing");
   }
 }
-// processEvents();
+
+//processEvents();
 
 function reject(reason: string) {
   throw new Error(reason);
 }
 
-// reject("Something went wrong");
-console.log("Done");
+//reject("Something went wrong");
+console.log("done");
+
+class Account {
+  id: number;
+  owner: string;
+  balance: number;
+
+  constructor(id: number, owner: string, balance: number) {
+    this.id = id;
+    this.owner = owner;
+    this.balance = balance;
+  }
+
+  deposit(amount: number): void {
+    if (amount <= 0) throw new Error("Invalid amount");
+    this.balance += amount;
+  }
+}
+
+let account = new Account(1, "Steve", 100);
+account.deposit(10);
+
+if (account instanceof Account) console.log("Account");
+
+//keywords: public, private, readonly, protected
